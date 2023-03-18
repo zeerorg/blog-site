@@ -1,22 +1,26 @@
 import React from "react";
+import { NextPage, GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 
-import GetContent from "./GetContent";
-import DisplayPost from "./DisplayPost";
+import GetContent from "../Components/GetContent";
+import DisplayPost from "../Components/DisplayPost";
 import * as urls from "../urls";
 
-const Post = function(props) {
-  const slug = props.match.params.slug;
+const Post: NextPage<any> = function(props: any) {
+  const slug = props.postId;
+  const router = useRouter();
+
   return (
     <React.Fragment>
       <GetContent url={[urls.api, urls.series]} key={slug}>
-        {(allData, allSeries) => {
+        {(allData: any, allSeries: any) => {
           const post = JSON.parse(allData).filter(
-            data => data.slug === slug
+            (data: any) => data.slug === slug
           )[0];
           const series = JSON.parse(allSeries)[post["series"]];
           return (
             <GetContent url={urls.GetHTML(post.filename)}>
-              {postHtml => (
+              {(postHtml: any) => (
                 <DisplayPost
                   {...post}
                   postHtml={postHtml}
@@ -31,5 +35,9 @@ const Post = function(props) {
     </React.Fragment>
   );
 };
+
+Post.getInitialProps = async ({ query }: any) => {
+  return { postId: query.postId as string }
+}
 
 export default Post;

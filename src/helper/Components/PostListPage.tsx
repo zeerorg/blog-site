@@ -5,7 +5,11 @@ import Page from "./PostListContainer";
 import styles from "main/styles/PostListPage.module.css";
 import HomeHead from "./PageHead";
 
-const PostListPage = function(props: any) {
+export interface PostListPageProps {
+  num: number
+}
+
+const PostListPage = function(props: PostListPageProps) {
   const { num } = props;
   const title = "Rishabh's Blog";
 
@@ -25,7 +29,7 @@ const PostListPage = function(props: any) {
           </div>
           <div className="margin-up-max margin-down-max">
             <p>
-              I'm Rishabh, I blog about software development and some casual
+              I&apos;m Rishabh, I blog about software development and some casual
               stuff.
               <br />
               <a href="https://twitter.com/zeerorg">

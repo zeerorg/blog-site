@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from 'next';
-import Post from "main/pages/Components/Post";
+import Post from "main/helper/Components/Post";
 
 const PostPage: NextPage<any> = Post
 

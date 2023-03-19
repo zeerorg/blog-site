@@ -1,5 +1,5 @@
-import Router from './Components/Router';
-import HomeHead from 'main/pages/Components/PageHead';
+import Router from '../helper/Components/Router';
+import HomeHead from 'main/helper/Components/PageHead';
 
 export default function Home() {
   return (

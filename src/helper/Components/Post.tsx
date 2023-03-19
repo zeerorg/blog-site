@@ -2,10 +2,11 @@ import React from "react";
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-import GetContent from "main/pages/Components/GetContent";
-import DisplayPost from "main/pages/Components/DisplayPost";
-import * as urls from "main/pages/urls";
-import HomeHead from "main/pages/Components/PageHead";
+import GetContent from "main/helper/Components/GetContent";
+import DisplayPost from "main/helper/Components/DisplayPost";
+import * as urls from "main/helper/urls";
+import HomeHead from "main/helper/Components/PageHead";
+import { BlogData } from "../blogData/main";
 
 const Post: NextPage<any> = function(props: any) {
   const slug = props.postId;
@@ -14,11 +15,11 @@ const Post: NextPage<any> = function(props: any) {
     <React.Fragment>
       <HomeHead />
       <GetContent url={[urls.api, urls.series]} key={slug}>
-        {(allData: any, allSeries: any) => {
-          const post = JSON.parse(allData).filter(
+        {(allData: string, allSeries: string) => {
+          const post: BlogData = JSON.parse(allData).filter(
             (data: any) => data.slug === slug
           )[0];
-          const series = JSON.parse(allSeries)[post["series"]];
+          const series = JSON.parse(allSeries)[post.series ?? ""];
           return (
             <GetContent url={urls.GetHTML(post.filename)}>
               {(postHtml: any) => (

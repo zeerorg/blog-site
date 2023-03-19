@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { RefObject, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import Prism from "prismjs";
@@ -13,11 +13,9 @@ import "prismjs/components/prism-yaml";
 import Series from "./Series";
 
 import "prismjs/themes/prism-okaidia.css";
-// import styles from "main/styles/Post.css";
-// import "./flexbox.css";
 
 const DisplayPost = function(props: any) {
-  let postContainer: any = useRef(null);
+  let postContainer: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   // set title and meta
@@ -31,34 +29,39 @@ const DisplayPost = function(props: any) {
     () => {
       Prism.highlightAll()
 
-      /* Add target: _blank to all link
-      let links = postContainer.current.getElementsByTagName("a");
-      for (let i = 0; i < links.length; i++) {
-        links.item(i).setAttribute("target", "_blank");
-        links.item(i).setAttribute("rel", "noopener");
-      }*/
+      // Add target: _blank to all link
+      if (postContainer.current !== null) {
+        let links = postContainer.current.getElementsByTagName("a");
+        for (let i = 0; i < links.length; i++) {
+          const item = links.item(i);
+          if (item !== null) {
+            item.setAttribute("target", "_blank");
+            item.setAttribute("rel", "noopener");
+          }
+        }
+      }
     },
     [props.postHtml]
   );
 
   return (
-    <div ref={postContainer}>
+    <div>
       <div className="flex-container">
         <div className="flex-big-item" />
         <div className="flex-main">
           <Link href="/" className="no-link-style">
             <h2 className="font-size-med margin-up-med margin-down-min">
-              Rishabh's Blog
+              Rishabh&apos;s Blog
             </h2>
           </Link>
-          <div className="DisplayPost">
+          <div className="DisplayPost" ref={postContainer}>
             <div className="flex-container">
               <div className="flex-main">
                 <div dangerouslySetInnerHTML={{ __html: props.postHtml }} />
                 <hr />
                 {!!props.dev_to && (
                   <p style={{ fontStyle: "italic" }}>
-                    For any discussion let's head over to{" "}
+                    For any discussion let&apos;s head over to{" "}
                     <a href={props.dev_to}>Dev.to</a>
                   </p>
                 )}

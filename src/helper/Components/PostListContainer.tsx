@@ -1,10 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import Link from "next/link";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 
 import PostList from "./PostList";
 import { useGetContent, DefaultWaiting } from "./GetContent";
 import { api as url } from "../urls";
+import BlogDataContext from "../blogData/BlogDataContext";
 
 const PageNav = function(props: any) {
   const { num, maxPage } = props;
@@ -47,17 +48,21 @@ const PageNav = function(props: any) {
   );
 };
 
-const Page = function(props: any) {
+export interface PageProps {
+  num: number
+};
+
+const Page = function(props: PageProps) {
   const { num } = props;
   const limit = 7;
 
-  let [rawPosts] = useGetContent(url);
+  let rawPosts = useContext(BlogDataContext) ?? [];
 
-  if (!rawPosts) {
-    return <DefaultWaiting />;
+  if (rawPosts.length === 0) {
+    return <h1>Empty list... kinda sad</h1>;
   }
 
-  let posts = JSON.parse(rawPosts)
+  let posts = rawPosts
     .reverse()
     .filter((post: any) => post.published);
   let count = posts.length;

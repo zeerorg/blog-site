@@ -46,11 +46,11 @@ const DisplayPost = function(props: any) {
       <div className="flex-container">
         <div className="flex-big-item" />
         <div className="flex-main">
-            <p className="font-size-med margin-up-med margin-down-min">
-            <a href="/">
+          <Link href="/" className="no-link-style">
+            <h2 className="font-size-med margin-up-med margin-down-min">
               Rishabh's Blog
-            </a>
-            </p>
+            </h2>
+          </Link>
           <div className="DisplayPost">
             <div className="flex-container">
               <div className="flex-main">

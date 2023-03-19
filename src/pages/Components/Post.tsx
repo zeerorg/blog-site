@@ -1,13 +1,18 @@
 import React from "react";
+import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
-import GetContent from "./GetContent";
-import DisplayPost from "./DisplayPost";
-import * as urls from "../urls";
+import GetContent from "main/pages/Components/GetContent";
+import DisplayPost from "main/pages/Components/DisplayPost";
+import * as urls from "main/pages/urls";
+import HomeHead from "main/pages/Components/PageHead";
 
-const Post = function(props: any) {
-  const slug = props.match.params.slug;
+const Post: NextPage<any> = function(props: any) {
+  const slug = props.postId;
+
   return (
     <React.Fragment>
+      <HomeHead />
       <GetContent url={[urls.api, urls.series]} key={slug}>
         {(allData: any, allSeries: any) => {
           const post = JSON.parse(allData).filter(

@@ -3,17 +3,15 @@ import Link from "next/link";
 
 import Page from "./PostListContainer";
 import styles from "main/styles/PostListPage.module.css";
+import HomeHead from "./PageHead";
 
 const PostListPage = function(props: any) {
   const { num } = props;
   const title = "Rishabh's Blog";
 
-  useEffect(() => {
-    document.title = "Rishabh's Blog";
-  }, []);
-
   return (
     <React.Fragment>
+      <HomeHead />
       <div className={styles["flex-container"]}>
         <div className={styles["flex-item"]} />
         <div className={styles["flex-item"]} />

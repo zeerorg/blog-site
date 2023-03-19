@@ -4,7 +4,7 @@ import { NextPage } from "next";
 const CurrentPage: NextPage = PostListPage
 
 CurrentPage.getInitialProps = async ({ query }: any) => {
-  return { num: query.pageNum as string }
+  return { num: Number(query.pageNum) as number }
 }
 
 export default CurrentPage;

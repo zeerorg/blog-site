@@ -13,17 +13,16 @@ import "prismjs/components/prism-yaml";
 import Series from "./Series";
 
 import "prismjs/themes/prism-okaidia.css";
+import { BlogData } from "../blogData/main";
+import Head from "next/head";
 
-const DisplayPost = function(props: any) {
+export interface DisplayPostProps extends Omit<BlogData, 'series'> {
+  postHtml: string,
+  series: any[] | null
+}
+
+const DisplayPost = function(props: DisplayPostProps) {
   let postContainer: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-  const router = useRouter();
-
-  // set title and meta
-  document.title = props.title;
-  var meta = document.createElement("meta");
-  meta.name = "description";
-  meta.content = props.tldr;
-  document.getElementsByTagName("head")[0].appendChild(meta);
 
   useEffect(
     () => {
@@ -45,6 +44,11 @@ const DisplayPost = function(props: any) {
   );
 
   return (
+    <React.Fragment>
+    <Head>
+      <title>{props.title}</title>
+      <meta name="description" content={props.tldr} />
+    </Head>
     <div>
       <div className="flex-container">
         <div className="flex-big-item" />
@@ -87,6 +91,7 @@ const DisplayPost = function(props: any) {
         <div className="flex-big-item" />
       </div>
     </div>
+    </React.Fragment>
   );
 };
 

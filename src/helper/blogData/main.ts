@@ -156,4 +156,4 @@ const MainBlogData: BlogData[] = [
     }
   ];
 
-export default MainBlogData;
+export default MainBlogData.filter(blog => blog.published);

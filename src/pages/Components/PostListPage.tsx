@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 
-import Page from "./Page";
-import styles from "main/styles/HomePage.module.css";
+import Page from "./PostListContainer";
+import styles from "main/styles/PostListPage.module.css";
 
-const HomePage = function(props: any) {
+const PostListPage = function(props: any) {
   const { num } = props;
   const title = "Rishabh's Blog";
 
@@ -14,10 +14,10 @@ const HomePage = function(props: any) {
 
   return (
     <React.Fragment>
-      <div className="flex-container">
-        <div className="flex-item" />
-        <div className="flex-item" />
-        <div className="flex-main">
+      <div className={styles["flex-container"]}>
+        <div className={styles["flex-item"]} />
+        <div className={styles["flex-item"]} />
+        <div className={styles["flex-main"]}>
           <div className="margin-up-max margin-down-max">
             <h1>
               <Link href="/" className="no-link-style">
@@ -39,10 +39,10 @@ const HomePage = function(props: any) {
           </div>
           <Page num={num} />
         </div>
-        <div className="flex-item" />
+        <div className={styles["flex-item"]} />
       </div>
     </React.Fragment>
   );
 };
 
-export default HomePage;
+export default PostListPage;

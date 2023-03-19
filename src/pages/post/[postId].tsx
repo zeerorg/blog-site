@@ -1,10 +1,10 @@
 import React from "react";
-import { NextPage, GetServerSideProps } from 'next';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-import GetContent from "../Components/GetContent";
-import DisplayPost from "../Components/DisplayPost";
-import * as urls from "../urls";
+import GetContent from "main/pages/Components/GetContent";
+import DisplayPost from "main/pages/Components/DisplayPost";
+import * as urls from "main/pages/urls";
 
 const Post: NextPage<any> = function(props: any) {
   const slug = props.postId;

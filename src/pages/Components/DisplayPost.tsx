@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import Prism from "prismjs";
 
 import "prismjs/components/prism-go";
@@ -17,6 +18,7 @@ import "prismjs/themes/prism-okaidia.css";
 
 const DisplayPost = function(props: any) {
   let postContainer: any = useRef(null);
+  const router = useRouter();
 
   // set title and meta
   document.title = props.title;
@@ -29,12 +31,12 @@ const DisplayPost = function(props: any) {
     () => {
       Prism.highlightAll()
 
-      // Add target: _blank to all link
+      /* Add target: _blank to all link
       let links = postContainer.current.getElementsByTagName("a");
       for (let i = 0; i < links.length; i++) {
         links.item(i).setAttribute("target", "_blank");
         links.item(i).setAttribute("rel", "noopener");
-      }
+      }*/
     },
     [props.postHtml]
   );
@@ -44,11 +46,11 @@ const DisplayPost = function(props: any) {
       <div className="flex-container">
         <div className="flex-big-item" />
         <div className="flex-main">
-          <Link href="/" className="no-link-style">
-            <h2 className="font-size-med margin-up-med margin-down-min">
+            <p className="font-size-med margin-up-med margin-down-min">
+            <a href="/">
               Rishabh's Blog
-            </h2>
-          </Link>
+            </a>
+            </p>
           <div className="DisplayPost">
             <div className="flex-container">
               <div className="flex-main">

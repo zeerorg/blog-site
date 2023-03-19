@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 import LoadingComponent from "./LoadingComponent";
 import DelayedRender from "./DelayedRender";
-import HomePage from "./HomePage";
+import PostListPage from "main/pages/Components/PostListPage";
 import Post from "./Post";
 
 /**
@@ -21,25 +21,9 @@ const Router = function() {
   const router = useRouter();
   let component: any = null;
 
-  if (router.pathname.startsWith("/post/")) {
-    component = (params: any) => <Post {...params} />
-  } else if (router.pathname.startsWith("/page/")) {
-    component = (params: any) => <HomePage num={GetPageNum(params)} />
-  } else if (router.pathname === "/") {
-    component = () => <HomePage num={1} />
-  }
-
   return (
     <React.Fragment>
-        <Suspense
-          fallback={
-            <DelayedRender timeout={4000}>
-              <LoadingComponent />
-            </DelayedRender>
-          }
-        >
-          {component()}
-        </Suspense>
+      <PostListPage num={1} />
     </React.Fragment>
   );
 };

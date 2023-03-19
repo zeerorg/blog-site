@@ -23,7 +23,7 @@ const CurrentPage: NextPage<any, any> = (props: CurrentPageProps) => {
 export const getStaticProps: GetStaticProps<CurrentPageProps> = async ({ params }: any) => {
   return {
     props: {
-      blogList: MainBlogData,
+      blogList: Array.from(MainBlogData),
       num: Number(params.pageNum)
     }, // will be passed to the page component as props
   }

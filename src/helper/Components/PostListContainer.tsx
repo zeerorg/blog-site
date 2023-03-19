@@ -62,9 +62,9 @@ const Page = function(props: PageProps) {
     return <h1>Empty list... kinda sad</h1>;
   }
 
-  let posts = rawPosts
+  let posts = [...rawPosts]
     .reverse()
-    .filter((post: any) => post.published);
+    .filter((post) => post.published);
   let count = posts.length;
   posts = posts.slice(limit * (num - 1), limit * num);
 

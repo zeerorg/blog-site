@@ -41,6 +41,6 @@ function FetchData(url) {
 
 We treat the provided url as our key and store the fetched data, so that any subsequent request is fulfilled from the cache. The best part about this approach is that it is easier to understand and doesn't intrude with our frontend code. It is also the best solution for our problem in this case.
 
-![Basic Architecture](https://zeerorgprocessedblog.blob.core.windows.net/photos/frontend-caching.png "Browser storage api")
+![Basic Architecture](/images/frontend-caching.png "Browser storage api")
 
 Caching is one of the most effective techniques to optimize performance and user experience. Storing request data on the frontend provides speedy navigation and greater control over what is stored by avoiding unnecessary requests to the backend.

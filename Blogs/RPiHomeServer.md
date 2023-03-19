@@ -17,7 +17,7 @@ You can access the password generator on this [link](https://home.zeerorg.site:3
 
 ## Diagram Time
 
-![Home server setup](https://zeerorgprocessedblog.blob.core.windows.net/photos/rpiserver.jpg)
+![Home server setup](/images/rpiserver.jpg)
 
 ## Reverse proxy - because, Security
 

@@ -69,7 +69,7 @@ This command has a few options, we'll go over them one by one
 
 A container manifest is a file that contains data about a container image. We can create a manifest which points to images for different architectures so that when using the image on a particular architecture the docker automatically pulls the desired image.
 
-<img src="https://zeerorgprocessedblog.blob.core.windows.net/photos/container-manifest.png" alt= "Kubernetes Setting" style="width:50%; margin-left: auto; margin-right: auto; display: block;"/>
+<img src="/images/container-manifest.png" alt= "Kubernetes Setting" style="width:50%; margin-left: auto; margin-right: auto; display: block;"/>
 
 Creating manifest is an experimental Docker-cli feature and you should update docker for good measure. Add following lines to .travis.yml
 

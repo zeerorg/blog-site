@@ -14,7 +14,7 @@ Steps:
 
    If it shows `docker-for-desktop` then it means kubernetes is running correctly.
 
-   <img src="https://zeerorgprocessedblog.blob.core.windows.net/photos/enable-k8s-docker-desktop.png" alt= "Kubernetes Setting" style="width:50%"/>
+   <img src="/images/enable-k8s-docker-desktop.png" alt= "Kubernetes Setting" style="width:50%"/>
 
 2. Open WSL console and **install kubectl** using the following commands
 

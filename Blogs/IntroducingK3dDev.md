@@ -26,15 +26,15 @@ Let's look at a normal workflow:
 
 1. Creating a kubernetes cluster: `k3d create`
    
-   ![kubernetes create cluster](https://zeerorgprocessedblog.blob.core.windows.net/photos/k3d-create.png)
+   ![kubernetes create cluster](/images/k3d-create.png)
 
 2. Set KUBECONFIG and get running pods: `export KUBECONFIG="$(k3d get-kubeconfig)" && kubectl get pods --all-namespaces`
    
-   ![kubectl get pods](https://zeerorgprocessedblog.blob.core.windows.net/photos/k3d-run.png)
+   ![kubectl get pods](/images/k3d-run.png)
 
 3. You can now restart your computer or docker and the cluster would still be present. You can delete the cluster by: `k3d delete`
 
-   ![kubernetes delete cluster](https://zeerorgprocessedblog.blob.core.windows.net/photos/k3d-delete.png)
+   ![kubernetes delete cluster](/images/k3d-delete.png)
 
 ## Installing k3d
 

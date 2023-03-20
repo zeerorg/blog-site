@@ -1,10 +1,9 @@
 import React from "react";
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
-import GetContent from "main/helper/Components/GetContent";
 import DisplayPost, { DisplayPostProps } from "main/helper/Components/DisplayPost";
 import HomeHead from "main/helper/Components/PageHead";
+import Head from "next/head";
 
 export interface PostProps {
   postId: string,
@@ -17,6 +16,14 @@ const Post: NextPage<PostProps> = function(props: PostProps) {
   return (
     <React.Fragment>
       <HomeHead />
+      <Head>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.tldr} />
+        <meta property="og:image" content={`https://deploy-preview-1--chipper-tulumba-c747ed.netlify.app/og-image.png`} />
+        <meta property="og:image:width" content="1080" />
+        <meta property="og:image:height" content="1080" />
+        <meta property="og:type" content="website" />
+      </Head>
       <DisplayPost
         {...post}
         postHtml={post.postHtml}

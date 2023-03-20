@@ -14,10 +14,6 @@ const PostPage: NextPage<any> = (props: PostPageProps) => {
   return (<Post {...props} />)
 }
 
-/*PostPage.getInitialProps = async ({ query }: any) => {
-  return { postId: query.postId as string }
-} */
-
 export const getStaticProps: GetStaticProps<PostPageProps> = async ({ params }: any) => {
   const slug = params.postId;
   const postData = MainBlogData.filter(blog => blog.slug === slug)[0]

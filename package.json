@@ -20,11 +20,13 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-loading": "^2.0.3",
+    "rss": "^1.2.2",
     "showdown": "^2.1.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {
     "@types/prismjs": "^1.26.0",
+    "@types/rss": "^0.0.30",
     "@types/showdown": "^2.0.0"
   }
 }

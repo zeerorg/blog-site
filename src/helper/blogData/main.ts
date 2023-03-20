@@ -9,7 +9,8 @@ export interface BlogData {
     timestamp:  number;
     dev_to?:    string;
     series?:    string;
-    tweet?:     string
+    tweet?:     string;
+    imageUrl?:  string;
 }
 
 const MainBlogData: BlogData[] = [

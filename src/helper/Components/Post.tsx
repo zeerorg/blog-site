@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import GetContent from "main/helper/Components/GetContent";
 import DisplayPost, { DisplayPostProps } from "main/helper/Components/DisplayPost";
 import HomeHead from "main/helper/Components/PageHead";
+import Head from "next/head";
 
 export interface PostProps {
   postId: string,
@@ -17,6 +18,13 @@ const Post: NextPage<PostProps> = function(props: PostProps) {
   return (
     <React.Fragment>
       <HomeHead />
+      <Head>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.tldr} />
+        <meta property="og:image" content={post.imageUrl ?? "/favicon.png"} />
+        <meta property="og:url" content={"/" + post.slug} />
+        <meta property="og:type" content="website" />
+      </Head>
       <DisplayPost
         {...post}
         postHtml={post.postHtml}
